@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Goan Daylight: Pure Ocean & Palm Green */
+  --color-bg: #f8fafc; 
+  --color-text: #0f172a;
+  --color-primary: #0284c7; 
+  --color-secondary: #059669; 
+  --color-card: #ffffff;
+  --color-nav-border: rgba(2, 132, 199, 0.1);
+}
+
+html.dark {
+  /* Midnight Tropic: Deep Sea & Forest */
+  --color-bg: #020617; 
+  --color-text: #f1f5f9;
+  --color-primary: #38bdf8;
+  --color-secondary: #34d399;
+  --color-card: #0f172a;
+  --color-nav-border: rgba(56, 189, 248, 0.1);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Custom fade-in animation for gallery and elements */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
