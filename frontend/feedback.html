@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Book | Dove Nest Goa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-[var(--color-card)] shadow-sm border-b border-[var(--color-nav-border)] backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tight">🕊️ Dove Nest</a>
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="../index.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Home</a>
+                    <a href="gallery.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Gallery</a>
+                    <a href="availability.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Availability</a>
+                    <a href="feedback.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] py-1">Reviews</a>
+                    <a href="contact.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Find Us</a>
+                    <a href="booking.html" class="px-5 py-2 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Entry Node -->
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tight mb-2">The Guest Book</h1>
+                <p class="opacity-70 mb-6">Shared memories from our poolside gatherings and stay vacations.</p>
+                
+                <form id="feedback-form" class="bg-[var(--color-card)] p-6 rounded-xl shadow-md border border-[var(--color-nav-border)] space-y-4">
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Name</label>
+                        <input type="text" id="fb-user" required class="w-full p-3 rounded-lg border border-[var(--color-nav-border)] bg-transparent focus:outline-[var(--color-primary)]">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Experience Rating</label>
+                        <select id="fb-score" class="w-full p-3 rounded-lg border border-[var(--color-nav-border)] bg-[var(--color-card)] focus:outline-[var(--color-primary)]">
+                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ Excellent Pool & Vibe</option>
+                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ Great Intimate Space</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-1">Review</label>
+                        <textarea id="fb-text" rows="4" required class="w-full p-3 rounded-lg border border-[var(--color-nav-border)] bg-transparent focus:outline-[var(--color-primary)]"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-lg font-bold bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all">Publish Review</button>
+                </form>
+            </div>
+
+            <!-- View Node Container -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Recent Guest Experiences</h2>
+                <div id="feedback-stream" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                    <!-- Default Baseline Review -->
+                    <div class="bg-[var(--color-card)] p-5 rounded-xl border border-[var(--color-nav-border)] shadow-sm">
+                        <div class="flex justify-between items-center"><h4 class="font-bold">Marius Fernandes</h4><span>⭐⭐⭐⭐⭐</span></div>
+                        <p class="text-sm opacity-80 mt-2">"The pool area is immaculate. Hosted my daughter's birthday bash here and the family loved the intimate, private setting right in Santa Cruz!"</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const formEl = document.getElementById('feedback-form');
+        const streamEl = document.getElementById('feedback-stream');
+
+        function drawReviews() {
+            const reviews = JSON.parse(localStorage.getItem('dove-nest-reviews')) || [];
+            reviews.forEach(r => renderBlock(r.user, r.score, r.text));
+        }
+
+        function renderBlock(user, score, text) {
+            streamEl.innerHTML = `
+                <div class="bg-[var(--color-card)] p-5 rounded-xl border border-[var(--color-nav-border)] shadow-sm animate-fade-in">
+                    <div class="flex justify-between items-center"><h4 class="font-bold">${user}</h4><span>${score}</span></div>
+                    <p class="text-sm opacity-80 mt-2">"${text}"</p>
+                </div>
+            ` + streamEl.innerHTML;
+        }
+
+        formEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = document.getElementById('fb-user').value;
+            const score = document.getElementById('fb-score').value;
+            const text = document.getElementById('fb-text').value;
+
+            const cache = JSON.parse(localStorage.getItem('dove-nest-reviews')) || [];
+            cache.push({ user, score, text });
+            localStorage.setItem('dove-nest-reviews', JSON.stringify(cache));
+
+            renderBlock(user, score, text);
+            formEl.reset();
+        });
+
+        drawReviews();
+    </script>
+</body>
+</html>
