@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dove Nest Goa - An authentic Portuguese-style farmhouse for events, staycations, and weddings.">
+    <title>Dove Nest | Authentic Goan Stay</title>
+    
+    <!-- Tailwind CSS (CDN for Dev, compile for Prod) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Assets -->
+    <link rel="stylesheet" href="frontend/css/style.css">
+    <script src="frontend/js/main.js"></script>
+</head>
+<body class="antialiased selection:bg-[var(--color-primary)] selection:text-white">
+
+    <!-- Global Navigation -->
+    <nav class="sticky top-0 z-50 bg-[var(--color-card)] shadow-sm border-b border-[var(--color-nav-border)] backdrop-blur-md bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tight hover:opacity-80 transition-opacity">
+                    🕊️ Dove Nest
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="index.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] py-1">Home</a>
+                    <a href="frontend/gallery.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Gallery</a>
+                    <a href="frontend/availability.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Availability</a>
+                    <a href="frontend/contact.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Find Us</a>
+                    <a href="frontend/booking.html" class="px-5 py-2 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
+                    
+                    <!-- Theme Toggle Icon -->
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+                        🌓
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" aria-label="Open Menu" class="md:hidden p-2 rounded-md text-[var(--color-text)] hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-card)] border-t border-[var(--color-nav-border)] shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html" class="block px-3 py-3 rounded-md font-bold text-[var(--color-primary)] bg-[var(--color-nav-border)]">Home</a>
+                <a href="frontend/gallery.html" class="block px-3 py-3 rounded-md font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Gallery</a>
+                <a href="frontend/availability.html" class="block px-3 py-3 rounded-md font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Availability</a>
+                <a href="frontend/contact.html" class="block px-3 py-3 rounded-md font-medium hover:bg-gray-50 dark:hover:bg-gray-800">Find Us</a>
+                <a href="frontend/booking.html" class="block px-3 py-3 mt-4 text-center rounded-md font-bold bg-[var(--color-primary)] text-white">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-[var(--color-card)] border-b border-[var(--color-nav-border)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-12">
+            
+            <!-- Hero Text -->
+            <div class="flex-1 text-center lg:text-left animate-fade-in">
+                <span class="text-[var(--color-secondary)] font-bold tracking-wider uppercase text-sm mb-4 block">Welcome to North Goa</span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+                    Experience Pure <br class="hidden lg:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">Goan Susegad.</span>
+                </h1>
+                <p class="mt-4 text-lg md:text-xl opacity-80 mb-8 max-w-2xl mx-auto lg:mx-0 font-light">
+                    Escape to a rustic, Portuguese-style paradise nestled in lush palm groves. Perfect for destination weddings, weekend getaways, and private celebrations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="frontend/booking.html" class="px-8 py-4 text-lg font-bold rounded-lg text-white bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] shadow-lg hover:-translate-y-1 transition-all duration-300">
+                        Check Availability
+                    </a>
+                    <a href="frontend/gallery.html" class="px-8 py-4 text-lg font-bold rounded-lg border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300">
+                        View Gallery
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="flex-1 w-full animate-fade-in" style="animation-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1582647509711-c8aa8a8bda71?auto=format&fit=crop&w=800&q=80" alt="Goan Villa" class="rounded-2xl shadow-2xl object-cover w-full h-[400px] lg:h-[500px] border-4 border-white dark:border-gray-800">
+            </div>
+        </div>
+    </header>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--color-card)] border-t border-[var(--color-nav-border)] py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center opacity-70 text-sm">
+            &copy; 2026 Dove Nest Goa. Engineered for speed and authenticity.
+        </div>
+    </footer>
+
+</body>
+</html>
