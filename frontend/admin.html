@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Control | Dove Nest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-zinc-950 flex items-center justify-center min-h-screen">
+
+    <main class="w-full max-w-md p-8 bg-[var(--color-card)] rounded-2xl shadow-2xl border border-[var(--color-nav-border)]">
+        <div class="text-center mb-8">
+            <span class="text-4xl">🔐</span>
+            <h1 class="text-2xl font-black mt-4">Admin Dashboard</h1>
+            <p class="text-sm opacity-70">Lock down dates directly to the JSON Database</p>
+        </div>
+
+        <form id="admin-form" class="space-y-5">
+            <div>
+                <label class="block text-sm font-bold mb-2">Target Date to Lock</label>
+                <input type="date" id="admin-date" required class="w-full p-3 rounded-lg border border-[var(--color-nav-border)] bg-transparent focus:outline-[var(--color-primary)]">
+            </div>
+            <div>
+                <label class="block text-sm font-bold mb-2">Event Reference Name</label>
+                <input type="text" id="admin-event" placeholder="e.g., Fernandes Family Reunion" required class="w-full p-3 rounded-lg border border-[var(--color-nav-border)] bg-transparent focus:outline-[var(--color-primary)]">
+            </div>
+            
+            <button type="submit" class="w-full py-4 rounded-xl font-bold bg-rose-600 text-white hover:bg-rose-700 shadow-md transition-all">
+                Mark as Unavailable
+            </button>
+        </form>
+
+        <div id="status-msg" class="mt-4 text-center text-sm font-bold hidden"></div>
+        
+        <div class="mt-8 text-center border-t border-[var(--color-nav-border)] pt-4">
+            <a href="availability.html" class="text-sm text-[var(--color-primary)] hover:underline">View Live Calendar &rarr;</a>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('admin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const date = document.getElementById('admin-date').value;
+            const event = document.getElementById('admin-event').value;
+            const statusEl = document.getElementById('status-msg');
+
+            statusEl.classList.remove('hidden', 'text-emerald-500', 'text-rose-500');
+            statusEl.innerText = "Processing...";
+
+            try {
+                const res = await fetch('http://127.0.0.1:5000/api/admin/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ date, event })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    statusEl.innerText = "✅ " + data.message;
+                    statusEl.classList.add('text-emerald-500');
+                    document.getElementById('admin-form').reset();
+                } else {
+                    statusEl.innerText = "⚠️ " + data.error;
+                    statusEl.classList.add('text-rose-500');
+                }
+            } catch (err) {
+                statusEl.innerText = "🚨 Failed to connect to server.";
+                statusEl.classList.add('text-rose-500');
+            }
+            
+            statusEl.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
