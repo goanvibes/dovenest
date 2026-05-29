@@ -3,38 +3,51 @@
 @tailwind utilities;
 
 :root {
-  /* Goan Daylight: Pure Ocean & Palm Green */
-  --color-bg: #f8fafc; 
-  --color-text: #0f172a;
-  --color-primary: #0284c7; 
-  --color-secondary: #059669; 
-  --color-card: #ffffff;
-  --color-nav-border: rgba(2, 132, 199, 0.1);
+  /* Susegad Beachside Luxury: Coastal Minimalism */
+  --color-bg: #F4EFEA; /* Warm Bleached Linen */
+  --color-text: #1D3B3A; /* Muted Tropical Sea Teal */
+  --color-primary: #D98A6C; /* Terracotta Clay */
+  --color-secondary: #A3B19B; /* Sage/Sun-baked Palm Frond */
+  --color-card: #FFFFFF;
+  --color-nav-border: rgba(29, 59, 58, 0.1);
 }
 
 html.dark {
-  /* Midnight Tropic: Deep Sea & Forest */
-  --color-bg: #020617; 
-  --color-text: #f1f5f9;
-  --color-primary: #38bdf8;
-  --color-secondary: #34d399;
-  --color-card: #0f172a;
-  --color-nav-border: rgba(56, 189, 248, 0.1);
+  /* The Sea We Breathe: Deep Abyss */
+  --color-bg: #0B192C; /* Abyssal Sea-Floor Ink Blue */
+  --color-text: #EBF4F6; /* Crisp Morning Seafoam */
+  --color-primary: #7EF1DB; /* Bioluminescent Cyan */
+  --color-secondary: #4FA9C5; /* Bright Mandovi Estuary Aqua */
+  --color-card: #112133;
+  --color-nav-border: rgba(126, 241, 219, 0.15);
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
+  /* Swapped to a more elegant serif/sans pairing aesthetic */
   font-family: 'Inter', system-ui, sans-serif;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  /* Extreme negative space concept from JSON */
+  padding-bottom: 5vw; 
 }
 
-/* Custom fade-in animation for gallery and elements */
+/* Custom fade-in animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Susegad Fluid Image Mask Transition */
+.coastal-image-mask {
+  clip-path: inset(100% 0% 0% 0%);
+  transition: clip-path 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coastal-image-mask.in-view {
+  clip-path: inset(0% 0% 0% 0%);
 }
