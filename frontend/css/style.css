@@ -3,38 +3,35 @@
 @tailwind utilities;
 
 :root {
-  /* Susegad Beachside Luxury: Coastal Minimalism */
-  --color-bg: #F4EFEA; /* Warm Bleached Linen */
-  --color-text: #1D3B3A; /* Muted Tropical Sea Teal */
-  --color-primary: #D98A6C; /* Terracotta Clay */
-  --color-secondary: #A3B19B; /* Sage/Sun-baked Palm Frond */
-  --color-card: #FFFFFF;
-  --color-nav-border: rgba(29, 59, 58, 0.1);
+  /* Goan Daylight: Pure Ocean Identity */
+  --color-bg: #f8fafc; /* Crisp morning sky white */
+  --color-text: #0f172a; /* Deep slate navy */
+  --color-primary: #0284c7; /* Your Signature Logo Blue */
+  --color-secondary: #0369a1; /* Deep ocean blue accent */
+  --color-card: #ffffff;
+  --color-nav-border: rgba(2, 132, 199, 0.1);
 }
 
 html.dark {
-  /* The Sea We Breathe: Deep Abyss */
-  --color-bg: #0B192C; /* Abyssal Sea-Floor Ink Blue */
-  --color-text: #EBF4F6; /* Crisp Morning Seafoam */
-  --color-primary: #7EF1DB; /* Bioluminescent Cyan */
-  --color-secondary: #4FA9C5; /* Bright Mandovi Estuary Aqua */
-  --color-card: #112133;
-  --color-nav-border: rgba(126, 241, 219, 0.15);
+  /* Midnight Tropic: Deep Sea Depth */
+  --color-bg: #020617; 
+  --color-text: #f1f5f9;
+  --color-primary: #38bdf8; /* Vibrant luminous blue */
+  --color-secondary: #0ea5e9;
+  --color-card: #0f172a;
+  --color-nav-border: rgba(56, 189, 248, 0.15);
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  /* Swapped to a more elegant serif/sans pairing aesthetic */
   font-family: 'Inter', system-ui, sans-serif;
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
-  /* Extreme negative space concept from JSON */
-  padding-bottom: 5vw; 
 }
 
-/* Custom fade-in animation */
+/* Cinematic Entry Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -42,10 +39,11 @@ body {
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Susegad Fluid Image Mask Transition */
+/* Fluid Wave/Inertial Image Reveal Mask */
 .coastal-image-mask {
   clip-path: inset(100% 0% 0% 0%);
-  transition: clip-path 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: clip-path 2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .coastal-image-mask.in-view {
