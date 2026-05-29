@@ -41,7 +41,7 @@
     <script>
         async function buildCalendar() {
             try {
-                const res = await fetch('http://127.0.0.1:5000/api/availability');
+                const res = await fetch('https://dove-nest-backend.onrender.com/api/availability');
                 const bookedData = await res.json();
                 
                 const grid = document.getElementById('calendar-grid');
