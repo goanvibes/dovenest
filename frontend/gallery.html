@@ -5,59 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Dove Nest Goa</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 <body class="antialiased">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-[var(--color-card)] shadow-sm border-b border-[var(--color-nav-border)] backdrop-blur-md bg-opacity-90">
+    <!-- Global Navigation -->
+    <nav class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-nav-border)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tight">🕊️ Dove Nest</a>
-                <div class="hidden md:flex items-center space-x-8 font-medium">
-                    <a href="../index.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Home</a>
-                    <a href="gallery.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] py-1">Gallery</a>
-                    <a href="availability.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Availability</a>
-                    <a href="feedback.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Reviews</a>
-                    <a href="contact.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Find Us</a>
-                    <a href="booking.html" class="px-5 py-2 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tighter">🕊️ Dove Nest</a>
+                <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                    <a href="../index.html" class="hover:text-[var(--color-primary)] transition-colors">Home</a>
+                    <a href="gallery.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] pb-1">Gallery</a>
+                    <a href="availability.html" class="hover:text-[var(--color-primary)] transition-colors">Availability</a>
+                    <a href="feedback.html" class="hover:text-[var(--color-primary)] transition-colors">Reviews</a>
+                    <a href="contact.html" class="hover:text-[var(--color-primary)] transition-colors">Find Us</a>
+                    <a href="booking.html" class="px-6 py-3 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Content Engine -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold tracking-tight mb-3">Celebrations by the Nest</h1>
-            <p class="opacity-70 max-w-xl mx-auto">Explore snapshots of pool sundowners, festive birthdays, intimate weddings, and corporate gatherings hosted at our property.</p>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <header class="text-center mb-16 animate-fade-in">
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Celebrations by the <span class="text-[var(--color-primary)]">Nest</span></h1>
+            <p class="opacity-70 max-w-xl mx-auto font-light text-lg">Explore snapshots of pool sundowners, festive birthdays, intimate weddings, and corporate gatherings hosted at our property.</p>
         </header>
 
         <!-- Filters Grid System -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12">
-            <button onclick="filterMedia('all')" class="px-6 py-2 rounded-full text-sm font-semibold bg-[var(--color-primary)] text-white shadow">All Moments</button>
-            <button onclick="filterMedia('party')" class="px-6 py-2 rounded-full text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] transition-all">Pool Parties & Birthdays</button>
-            <button onclick="filterMedia('wedding')" class="px-6 py-2 rounded-full text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] transition-all">Weddings & Receptions</button>
-            <button onclick="filterMedia('corporate')" class="px-6 py-2 rounded-full text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] transition-all">Corporate Events</button>
+        <div class="flex flex-wrap justify-center gap-3 mb-16 animate-fade-in" style="animation-delay: 0.1s;">
+            <button onclick="filterMedia('all')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-primary)] text-white shadow-md">All Moments</button>
+            <button onclick="filterMedia('party')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] text-[var(--color-text)] transition-all">Pool Parties & Birthdays</button>
+            <button onclick="filterMedia('wedding')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] text-[var(--color-text)] transition-all">Weddings & Receptions</button>
+            <button onclick="filterMedia('corporate')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] text-[var(--color-text)] transition-all">Corporate Events</button>
         </div>
 
         <!-- Interactive Masonry Layout -->
-        <div id="media-deck" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="media-deck" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Pool Party -->
-            <div class="media-card party bg-[var(--color-card)] rounded-xl overflow-hidden shadow-lg border border-[var(--color-nav-border)]">
-                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80" alt="Pool Party Sundowner" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
-                <div class="p-4"><span class="text-xs font-bold text-[var(--color-secondary)] uppercase">Party</span><h3 class="font-bold text-lg mt-1">Poolside Sundowner</h3></div>
+            <div class="media-card party bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-nav-border)] group">
+                <div class="h-64 overflow-hidden bg-[var(--color-nav-border)]">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80" alt="Pool Party Sundowner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 coastal-image-mask observer-trigger">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest">Party</span>
+                    <h3 class="font-bold text-xl mt-1">Poolside Sundowner</h3>
+                </div>
             </div>
             <!-- Wedding -->
-            <div class="media-card wedding bg-[var(--color-card)] rounded-xl overflow-hidden shadow-lg border border-[var(--color-nav-border)]">
-                <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80" alt="Goan Wedding Reception" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
-                <div class="p-4"><span class="text-xs font-bold text-[var(--color-primary)] uppercase">Wedding</span><h3 class="font-bold text-lg mt-1">Intimate Garden Vows</h3></div>
+            <div class="media-card wedding bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-nav-border)] group">
+                <div class="h-64 overflow-hidden bg-[var(--color-nav-border)]">
+                    <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80" alt="Goan Wedding Reception" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 coastal-image-mask observer-trigger">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest">Wedding</span>
+                    <h3 class="font-bold text-xl mt-1">Intimate Garden Vows</h3>
+                </div>
             </div>
             <!-- Corporate -->
-            <div class="media-card corporate bg-[var(--color-card)] rounded-xl overflow-hidden shadow-lg border border-[var(--color-nav-border)]">
-                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Corporate Team Event" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
-                <div class="p-4"><span class="text-xs font-bold text-blue-500 uppercase">Corporate</span><h3 class="font-bold text-lg mt-1">Team Strategy Dinner</h3></div>
+            <div class="media-card corporate bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-nav-border)] group">
+                <div class="h-64 overflow-hidden bg-[var(--color-nav-border)]">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Corporate Team Event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 coastal-image-mask observer-trigger">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest">Corporate</span>
+                    <h3 class="font-bold text-xl mt-1">Team Strategy Dinner</h3>
+                </div>
             </div>
         </div>
     </main>
