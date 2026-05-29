@@ -3,63 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dove Nest | Authentic Goan Stay</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Smooth Scroll Architecture Hook -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <link rel="stylesheet" href="frontend/css/style.css">
-    <script src="frontend/js/main.js" defer></script>
-</head>
-<body class="antialiased selection:bg-[var(--color-primary)] selection:text-white">
+    
+    <!-- Premium SEO Meta Infrastructure -->
+    <title>Dove Nest Goa | Luxury Pool Venue & Catering by Saturnino Soccorro Fernandes</title>
+    <meta name="description" content="Book Dove Nest Goa at Bandh, Santa Cruz (near Bambolim). Premium event venue with private swimming pool for pool parties, weddings, and corporate gatherings. Elite catering services by Saturnino Soccorro Fernandes, Sergio, and Dove Caters.">
+    <meta name="keywords" content="Dove Nest Goa, Saturnino Soccorro Fernandes, Santa Cruz Goa venue, Bambolim swimming pool, Bandh Goa events, Dove Caters, Sergio catering Goa, pool party venue Panaji, holiday villa Santa Cruz, venue hire Goa, Fuelerz design">
+    <meta name="author" content="Saturnino Soccorro Fernandes">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dove Nest Goa | Luxury Pool Venue & Catering in Santa Cruz">
+    <meta property="og:description" content="Experience private event hosting at Dove Nest, Bandh, St Cruz. Featuring an elite swimming pool, lawn layouts, and premier catering by Dove Caters. Managed by Saturnino Soccorro Fernandes.">
+    <meta property="og:image" content="assets/front.png">
+    <meta property="og:url" content="https://dovenestgoa.com">
 
-    <nav class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-nav-border)]">
+    <!-- Global Favicon System -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="frontend/css/style.css">
+</head>
+<body class="antialiased bg-[var(--color-bg)]">
+
+    <!-- Global Navigation -->
+    <nav class="sticky top-0 z-50 bg-[var(--color-card)]/80 backdrop-blur-md border-b border-[var(--color-nav-border)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tighter">
-                    🕊️ Dove Nest
+                <!-- Branding Block with Logo Asset -->
+                <a href="index.html" class="flex items-center gap-3 text-2xl font-black text-[var(--color-primary)] tracking-tighter">
+                    <img src="assets/logo.png" alt="Dove Nest Logo" class="h-9 w-9 object-contain rounded-full">
+                    <span>Dove Nest</span>
                 </a>
-                
-                <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
-                    <a href="index.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] pb-1">Home</a>
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="index.html" class="text-[var(--color-primary)] font-bold">Home</a>
                     <a href="frontend/gallery.html" class="hover:text-[var(--color-primary)] transition-colors">Gallery</a>
                     <a href="frontend/availability.html" class="hover:text-[var(--color-primary)] transition-colors">Availability</a>
+                    <a href="frontend/feedback.html" class="hover:text-[var(--color-primary)] transition-colors">Reviews</a>
                     <a href="frontend/contact.html" class="hover:text-[var(--color-primary)] transition-colors">Find Us</a>
-                    <a href="frontend/booking.html" class="px-6 py-3 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
-                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-[var(--color-nav-border)] transition-colors">🌓</button>
+                    <a href="frontend/booking.html" class="px-5 py-2.5 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <header class="relative overflow-hidden pt-20 pb-32 lg:pt-28 lg:pb-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-16">
-            
-            <div class="flex-1 text-center lg:text-left animate-fade-in">
-                <span class="text-[var(--color-primary)] font-bold tracking-widest uppercase text-xs mb-4 block">Welcome to Santa Cruz</span>
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none mb-6 text-[var(--color-text)]">
-                    Experience Pure <br>
-                    <span class="text-[var(--color-primary)]">Goan Susegad.</span>
-                </h1>
-                <p class="text-lg opacity-80 mb-10 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-                    Escape to a rustic, Portuguese-style paradise nestled in lush palm groves. Perfect for destination weddings, weekend getaways, and private celebrations.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="frontend/booking.html" class="px-8 py-4 font-bold rounded-xl text-white bg-[var(--color-primary)] hover:bg-[var(--color-secondary)] shadow-lg transition-all">
-                        Check Availability
-                    </a>
-                    <a href="frontend/gallery.html" class="px-8 py-4 font-bold rounded-xl border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white transition-all">
-                        View Gallery
-                    </a>
-                </div>
-            </div>
+    <!-- Hero Content Optimized for Local SEO Crawling -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs uppercase font-bold tracking-widest text-[var(--color-primary)] bg-blue-500/10 px-4 py-2 rounded-full">Premium Event Venue & Catering</span>
+            <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight mt-6 mb-6">Your Private Oasis at St Cruz, Goa</h1>
+            <p class="text-lg opacity-75 font-light leading-relaxed">
+                Welcome to <strong class="font-semibold">Dove Nest Goa</strong>, located in the peaceful neighborhood of <strong class="font-semibold">Bandh, Santa Cruz</strong> (minutes away from <strong class="font-semibold">Bambolim</strong>). Our premium property features a stunning, crystal-clear <strong class="font-semibold">swimming pool</strong> and luxury event spaces, curated exclusively by owner <strong class="font-semibold">Saturnino Soccorro Fernandes</strong> and event manager <strong class="font-semibold">Sergio</strong>.
+            </p>
+        </div>
 
-            <div class="flex-1 w-full">
-                <div class="rounded-[2rem] overflow-hidden shadow-2xl h-[400px] lg:h-[500px] bg-[var(--color-nav-border)]">
-                    <!-- Placeholder ready: will smoothly transition into view -->
-                    <img src="https://images.unsplash.com/photo-1582647509711-c8aa8a8bda71?auto=format&fit=crop&w=800&q=80" alt="Goan Villa" class="object-cover w-full h-full coastal-image-mask observer-trigger">
-                </div>
+        <!-- Featured Features / Keyword Anchors Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div class="bg-[var(--color-card)] p-8 rounded-2xl border border-[var(--color-nav-border)] shadow-sm">
+                <div class="text-3xl mb-4">🏊‍♂️</div>
+                <h3 class="text-xl font-bold mb-2">Pristine Swimming Pool</h3>
+                <p class="text-sm opacity-70">Enjoy our fully-maintained private swimming pool, tailored beautifully for refreshing sun-downer gatherings and luxury pool parties.</p>
+            </div>
+            <div class="bg-[var(--color-card)] p-8 rounded-2xl border border-[var(--color-nav-border)] shadow-sm">
+                <div class="text-3xl mb-4">🍗</div>
+                <h3 class="text-xl font-bold mb-2">Elite Catering Services</h3>
+                <p class="text-sm opacity-70">Authentic culinary setups handled natively by <strong class="font-semibold">Dove Caters</strong>. From fine corporate menus to grand wedding buffets.</p>
+            </div>
+            <div class="bg-[var(--color-card)] p-8 rounded-2xl border border-[var(--color-nav-border)] shadow-sm">
+                <div class="text-3xl mb-4">🌴</div>
+                <h3 class="text-xl font-bold mb-2">St Cruz Location</h3>
+                <p class="text-sm opacity-70">Tucked safely away behind Vailankani Chapel at Bandh, offering total peace and easy road mapping access from Panaji and Bambolim.</p>
             </div>
         </div>
-    </header>
+    </main>
+
+    <!-- Global Standard Footer -->
+    <footer class="bg-[var(--color-card)] border-t border-[var(--color-nav-border)] py-12 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm opacity-70 space-y-3">
+            <p class="font-medium">&copy; 2026 Dove Nest Goa. All Rights Reserved. Managed by Saturnino Soccorro Fernandes & Sergio.</p>
+            <p class="text-xs opacity-60">Address: House № 82, Bandh, Santa Cruz, Panaji, Goa 403005</p>
+            <p class="text-xs font-semibold pt-4 border-t border-[var(--color-nav-border)]/50">
+                Website Designed & Developed by <a href="https://fuelerz.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline font-bold">Fuelerz.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Structured Local Business Data Schema for Google Crawler -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EventVenue",
+      "name": "Dove Nest Goa",
+      "image": "https://dovenestgoa.com/assets/front.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bairro Bandh, H№ 82, Bandh",
+        "addressLocality": "Santa Cruz, Panaji",
+        "addressRegion": "Goa",
+        "postalCode": "403005",
+        "addressCountry": "IN"
+      },
+      "telephone": "+919822182917",
+      "owner": {
+        "@type": "Person",
+        "name": "Saturnino Soccorro Fernandes"
+      }
+    }
+    </script>
 </body>
 </html>
