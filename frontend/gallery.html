@@ -5,90 +5,281 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | Dove Nest Goa</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js"></script>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-[var(--color-bg)]">
 
     <!-- Global Navigation -->
-    <nav class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-nav-border)]">
+    <nav class="sticky top-0 z-50 bg-[var(--color-card)] shadow-sm border-b border-[var(--color-nav-border)] backdrop-blur-md bg-opacity-90">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tighter">🕊️ Dove Nest</a>
-                <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
-                    <a href="../index.html" class="hover:text-[var(--color-primary)] transition-colors">Home</a>
-                    <a href="gallery.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] pb-1">Gallery</a>
-                    <a href="availability.html" class="hover:text-[var(--color-primary)] transition-colors">Availability</a>
-                    <a href="feedback.html" class="hover:text-[var(--color-primary)] transition-colors">Reviews</a>
-                    <a href="contact.html" class="hover:text-[var(--color-primary)] transition-colors">Find Us</a>
-                    <a href="booking.html" class="px-6 py-3 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
+            <div class="flex justify-between items-center h-16">
+                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tight">🕊️ Dove Nest</a>
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="../index.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Home</a>
+                    <a href="gallery.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] py-1">Gallery</a>
+                    <a href="availability.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Availability</a>
+                    <a href="feedback.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Reviews</a>
+                    <a href="contact.html" class="hover:text-[var(--color-secondary)] transition-colors py-1">Find Us</a>
+                    <a href="booking.html" class="px-5 py-2 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Content Engine -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <header class="text-center mb-16 animate-fade-in">
-            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Celebrations by the <span class="text-[var(--color-primary)]">Nest</span></h1>
-            <p class="opacity-70 max-w-xl mx-auto font-light text-lg">Explore snapshots of pool sundowners, festive birthdays, intimate weddings, and corporate gatherings hosted at our property.</p>
-        </header>
-
-        <!-- Filters Grid System -->
-        <div class="flex flex-wrap justify-center gap-3 mb-16 animate-fade-in" style="animation-delay: 0.1s;">
-            <button onclick="filterMedia('all')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-primary)] text-white shadow-md">All Moments</button>
-            <button onclick="filterMedia('party')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] text-[var(--color-text)] transition-all">Pool Parties & Birthdays</button>
-            <button onclick="filterMedia('wedding')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] text-[var(--color-text)] transition-all">Weddings & Receptions</button>
-            <button onclick="filterMedia('corporate')" class="px-6 py-3 rounded-xl text-sm font-semibold bg-[var(--color-card)] border border-[var(--color-nav-border)] hover:border-[var(--color-primary)] text-[var(--color-text)] transition-all">Corporate Events</button>
+    <!-- Main Content Header -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold tracking-tight mb-3">Explore the Nest</h1>
+            <p class="opacity-70 max-w-xl mx-auto">Take a visual tour through our pristine event lawns, refreshing swimming pools, elite seating configurations, and luxury amenities in Santa Cruz.</p>
         </div>
 
-        <!-- Interactive Masonry Layout -->
-        <div id="media-deck" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Pool Party -->
-            <div class="media-card party bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-nav-border)] group">
-                <div class="h-64 overflow-hidden bg-[var(--color-nav-border)]">
-                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80" alt="Pool Party Sundowner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 coastal-image-mask observer-trigger">
+        <!-- Responsive Media Grid Gallery -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- Card 1: front.png -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/front.png" alt="Dove Nest Front View" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
                 </div>
-                <div class="p-6">
-                    <span class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest">Party</span>
-                    <h3 class="font-bold text-xl mt-1">Poolside Sundowner</h3>
-                </div>
-            </div>
-            <!-- Wedding -->
-            <div class="media-card wedding bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-nav-border)] group">
-                <div class="h-64 overflow-hidden bg-[var(--color-nav-border)]">
-                    <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?auto=format&fit=crop&w=600&q=80" alt="Goan Wedding Reception" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 coastal-image-mask observer-trigger">
-                </div>
-                <div class="p-6">
-                    <span class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest">Wedding</span>
-                    <h3 class="font-bold text-xl mt-1">Intimate Garden Vows</h3>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Exterior</p>
+                    <h3 class="font-bold text-sm">Main Entrance View</h3>
                 </div>
             </div>
-            <!-- Corporate -->
-            <div class="media-card corporate bg-[var(--color-card)] rounded-2xl overflow-hidden shadow-lg border border-[var(--color-nav-border)] group">
-                <div class="h-64 overflow-hidden bg-[var(--color-nav-border)]">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Corporate Team Event" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 coastal-image-mask observer-trigger">
+
+            <!-- Card 2: lawnandpool.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/lawnandpool.jpg" alt="Lawn and Pool View" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
                 </div>
-                <div class="p-6">
-                    <span class="text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest">Corporate</span>
-                    <h3 class="font-bold text-xl mt-1">Team Strategy Dinner</h3>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Outdoors</p>
+                    <h3 class="font-bold text-sm">Poolside Lawn Experience</h3>
                 </div>
             </div>
+
+            <!-- Card 3: swimminpool.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/swimminpool.jpg" alt="Main Swimming Pool" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Leisure</p>
+                    <h3 class="font-bold text-sm">Main Swimming Pool</h3>
+                </div>
+            </div>
+
+            <!-- Card 4: poolview1.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/poolview1.jpg" alt="Pool View Wide" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Leisure</p>
+                    <h3 class="font-bold text-sm">Crystal Blue Pool View</h3>
+                </div>
+            </div>
+
+            <!-- Card 5: poolview2.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/poolview2.jpg" alt="Pool Deck View" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Leisure</p>
+                    <h3 class="font-bold text-sm">Pool Deck Overview</h3>
+                </div>
+            </div>
+
+            <!-- Card 6: poolpotrait.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/poolpotrait.jpg" alt="Pool Landscape Portrait" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Leisure</p>
+                    <h3 class="font-bold text-sm">Pool Reflection Feature</h3>
+                </div>
+            </div>
+
+            <!-- Card 7: swimm.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/swimm.jpg" alt="Swimming Action" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Leisure</p>
+                    <h3 class="font-bold text-sm">Active Swimming Lanes</h3>
+                </div>
+            </div>
+
+            <!-- Card 8: babypool.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/babypool.jpg" alt="Kids Pool Area" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Leisure</p>
+                    <h3 class="font-bold text-sm">Safe Kids Pool Area</h3>
+                </div>
+            </div>
+
+            <!-- Card 9: lawnandstage.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/lawnandstage.jpg" alt="Lawn with Stage Layout" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Events</p>
+                    <h3 class="font-bold text-sm">Lawn with Stage Set</h3>
+                </div>
+            </div>
+
+            <!-- Card 10: lawnandhall.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/lawnandhall.jpg" alt="Lawn and Banquet Entry" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Events</p>
+                    <h3 class="font-bold text-sm">Lush Lawn & Banquet Entry</h3>
+                </div>
+            </div>
+
+            <!-- Card 11: bdaynew.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/bdaynew.jpg" alt="Birthday Celebration Scene" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Events</p>
+                    <h3 class="font-bold text-sm">Birthday Party Decor</h3>
+                </div>
+            </div>
+
+            <!-- Card 12: baby2.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/baby2.jpg" alt="Kids Milestone Event" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Events</p>
+                    <h3 class="font-bold text-sm">Toddler & Kids Celebrations</h3>
+                </div>
+            </div>
+
+            <!-- Card 13: seatingarea.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/seatingarea.jpg" alt="Lounge Area Layout" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Setup</p>
+                    <h3 class="font-bold text-sm">Lounge Seating Space</h3>
+                </div>
+            </div>
+
+            <!-- Card 14: seatingviewpool.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/seatingviewpool.jpg" alt="Poolside Seating Setup" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Setup</p>
+                    <h3 class="font-bold text-sm">Poolside Seating Vista</h3>
+                </div>
+            </div>
+
+            <!-- Card 15: seating.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/seating.jpg" alt="Main Table Seating" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Setup</p>
+                    <h3 class="font-bold text-sm">Premium Guest Seating</h3>
+                </div>
+            </div>
+
+            <!-- Card 16: chairs.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/chairs.jpg" alt="Banqueting Chairs Arrangement" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Setup</p>
+                    <h3 class="font-bold text-sm">Elegant Seating Setup</h3>
+                </div>
+            </div>
+
+            <!-- Card 17: picnic.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/picnic.jpg" alt="Picnic Bench Settings" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Experience</p>
+                    <h3 class="font-bold text-sm">Outdoor Picnic Layout</h3>
+                </div>
+            </div>
+
+            <!-- Card 18: picnic2.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/picnic2.jpg" alt="Secondary Picnic Zone" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Experience</p>
+                    <h3 class="font-bold text-sm">Day-use Picnic Area</h3>
+                </div>
+            </div>
+
+            <!-- Card 19: kitchen.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/kitchen.jpg" alt="Primary Luxury Kitchen" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Amenities</p>
+                    <h3 class="font-bold text-sm">Indoor Kitchen Facility</h3>
+                </div>
+            </div>
+
+            <!-- Card 20: kitchen2.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/kitchen2.jpg" alt="Catering Kitchen Space" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Amenities</p>
+                    <h3 class="font-bold text-sm">Catering & Prep Space</h3>
+                </div>
+            </div>
+
+            <!-- Card 21: night.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/night.jpg" alt="Night Scene Illumination" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Ambiance</p>
+                    <h3 class="font-bold text-sm">Midnight Venue Illumination</h3>
+                </div>
+            </div>
+
+            <!-- Card 22: sign.jpg -->
+            <div class="group relative overflow-hidden rounded-2xl bg-[var(--color-card)] border border-[var(--color-nav-border)] shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div class="aspect-square w-full overflow-hidden bg-zinc-100 dark:bg-zinc-900">
+                    <img src="../assets/sign.jpg" alt="Property Entrance Signage" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs uppercase tracking-wider font-bold text-[var(--color-primary)] mb-1">Exterior</p>
+                    <h3 class="font-bold text-sm">Welcome Signage</h3>
+                </div>
+            </div>
+
         </div>
     </main>
-
-    <script>
-        function filterMedia(tag) {
-            document.querySelectorAll('.media-card').forEach(card => {
-                if(tag === 'all' || card.classList.contains(tag)) {
-                    card.style.display = 'block';
-                    card.classList.add('animate-fade-in');
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 </html>
