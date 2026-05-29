@@ -4,68 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Now | Dove Nest Goa</title>
+    <meta name="description" content="Connect with Saturnino Fernandes and Sergio to lock down event catering and private pool bookings at Bandh, Santa Cruz.">
+    
+    <link rel="icon" type="image/png" href="../assets/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js"></script>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-[var(--color-bg)]">
 
     <!-- Global Navigation -->
-    <nav class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-nav-border)]">
+    <nav class="sticky top-0 z-50 bg-[var(--color-card)]/80 backdrop-blur-md border-b border-[var(--color-nav-border)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tighter">🕊️ Dove Nest</a>
-                <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                <a href="../index.html" class="flex items-center gap-3 text-2xl font-black text-[var(--color-primary)] tracking-tighter">
+                    <img src="../assets/logo.png" alt="Dove Nest Logo" class="h-9 w-9 object-contain rounded-full">
+                    <span>Dove Nest</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
                     <a href="../index.html" class="hover:text-[var(--color-primary)] transition-colors">Home</a>
                     <a href="gallery.html" class="hover:text-[var(--color-primary)] transition-colors">Gallery</a>
                     <a href="availability.html" class="hover:text-[var(--color-primary)] transition-colors">Availability</a>
                     <a href="feedback.html" class="hover:text-[var(--color-primary)] transition-colors">Reviews</a>
                     <a href="contact.html" class="hover:text-[var(--color-primary)] transition-colors">Find Us</a>
-                    <a href="booking.html" class="px-6 py-3 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
+                    <a href="booking.html" class="text-[var(--color-primary)] font-bold">Book Now</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-20 animate-fade-in">
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-extrabold tracking-tight mb-4">Secure Your Oasis</h1>
-            <p class="opacity-70 font-light text-lg">Submit details directly to dispatch confirmation metrics via instant messaging gateways.</p>
+    <!-- Booking Form Interface -->
+    <main class="max-w-2xl mx-auto px-4 py-16">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold tracking-tight mb-3">Secure Your Oasis</h1>
+            <p class="opacity-70 text-sm">Submit your dates to connect immediately with Saturnino Fernandes or Sergio on WhatsApp to finalize your private gathering arrangements.</p>
         </div>
 
-        <form id="whatsapp-booking-form" class="bg-[var(--color-card)] p-8 md:p-12 rounded-3xl shadow-xl border border-[var(--color-nav-border)] space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form id="whatsapp-booking-form" class="bg-[var(--color-card)] p-8 rounded-2xl shadow-xl border border-[var(--color-nav-border)] space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                    <label class="block text-sm font-bold mb-2 opacity-80">Full Name</label>
-                    <input type="text" id="b-name" required class="w-full p-4 rounded-xl border border-[var(--color-nav-border)] bg-transparent focus:border-[var(--color-primary)] outline-none transition-all">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2">Full Name</label>
+                    <input type="text" id="b-name" required class="w-full p-3 rounded-xl border border-[var(--color-nav-border)] bg-transparent focus:ring-2 focus:ring-[var(--color-primary)] outline-none">
                 </div>
                 <div>
-                    <label class="block text-sm font-bold mb-2 opacity-80">Preferred Date</label>
-                    <input type="date" id="b-date" required class="w-full p-4 rounded-xl border border-[var(--color-nav-border)] bg-[var(--color-card)] focus:border-[var(--color-primary)] outline-none transition-all">
+                    <label class="block text-xs font-bold uppercase tracking-wider mb-2">Preferred Date</label>
+                    <input type="date" id="b-date" required class="w-full p-3 rounded-xl border border-[var(--color-nav-border)] bg-[var(--color-bg)] focus:ring-2 focus:ring-[var(--color-primary)] outline-none">
                 </div>
             </div>
-
             <div>
-                <label class="block text-sm font-bold mb-2 opacity-80">Type of Gathering</label>
-                <select id="b-event" class="w-full p-4 rounded-xl border border-[var(--color-nav-border)] bg-[var(--color-card)] focus:border-[var(--color-primary)] outline-none">
+                <label class="block text-xs font-bold uppercase tracking-wider mb-2">Gathering / Event Type</label>
+                <select id="b-event" class="w-full p-3 rounded-xl border border-[var(--color-nav-border)] bg-[var(--color-bg)] text-sm focus:ring-2 focus:ring-[var(--color-primary)] outline-none">
                     <option value="Pool Party / Sundowner">Pool Party / Sundowner</option>
-                    <option value="Intimate Wedding">Intimate Wedding</option>
-                    <option value="Family Staycation">Family Staycation</option>
-                    <option value="Corporate Retreat">Corporate Retreat</option>
+                    <option value="Intimate Function">Intimate Wedding / Function</option>
+                    <option value="Dove Caters Dine In">Family Event with Catering</option>
                 </select>
             </div>
-
-            <div>
-                <label class="block text-sm font-bold mb-2 opacity-80">Guest Count</label>
-                <input type="number" id="b-guests" min="1" max="150" required placeholder="e.g., 25" class="w-full p-4 rounded-xl border border-[var(--color-nav-border)] bg-transparent focus:border-[var(--color-primary)] outline-none">
-            </div>
-
-            <button type="submit" class="w-full py-4 rounded-xl font-bold text-lg bg-[#25D366] text-white hover:bg-[#1DA851] shadow-lg hover:-translate-y-0.5 transition-all flex justify-center items-center gap-2">
+            <button type="submit" class="w-full py-4 rounded-xl font-bold bg-[#25D366] text-white hover:bg-[#1DA851] shadow-md transition-all flex justify-center items-center gap-2">
                 Send Request via WhatsApp
             </button>
         </form>
     </main>
+
+    <!-- Global Standard Footer -->
+    <footer class="bg-[var(--color-card)] border-t border-[var(--color-nav-border)] py-12 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm opacity-70 space-y-3">
+            <p class="font-medium">&copy; 2026 Dove Nest Goa. All Rights Reserved. Managed by Saturnino Soccorro Fernandes & Sergio.</p>
+            <p class="text-xs font-semibold pt-4 border-t border-[var(--color-nav-border)]/50">
+                Website Designed & Developed by <a href="https://fuelerz.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline font-bold">Fuelerz.com</a>
+            </p>
+        </div>
+    </footer>
 
     <script src="js/booking.js"></script>
 </body>
