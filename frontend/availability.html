@@ -3,91 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Availability | Dove Nest Goa</title>
+    <title>Availability Schedule | Dove Nest Goa</title>
+    <meta name="description" content="Check live calendar availability for venue booking at Dove Nest Goa in St Cruz. Secure your dates for pool parties, functions, and catering by Dove Caters.">
+    
+    <link rel="icon" type="image/png" href="../assets/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-[var(--color-bg)]">
 
-    <!-- Global Navigation System -->
-    <nav class="sticky top-0 z-50 bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-nav-border)]">
+    <!-- Global Navigation -->
+    <nav class="sticky top-0 z-50 bg-[var(--color-card)]/80 backdrop-blur-md border-b border-[var(--color-nav-border)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="../index.html" class="text-2xl font-black text-[var(--color-primary)] tracking-tighter">🕊️ Dove Nest</a>
-                <div class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                <a href="../index.html" class="flex items-center gap-3 text-2xl font-black text-[var(--color-primary)] tracking-tighter">
+                    <img src="../assets/logo.png" alt="Dove Nest Logo" class="h-9 w-9 object-contain rounded-full">
+                    <span>Dove Nest</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
                     <a href="../index.html" class="hover:text-[var(--color-primary)] transition-colors">Home</a>
                     <a href="gallery.html" class="hover:text-[var(--color-primary)] transition-colors">Gallery</a>
-                    <a href="availability.html" class="text-[var(--color-primary)] border-b-2 border-[var(--color-primary)] pb-1">Availability</a>
+                    <a href="availability.html" class="text-[var(--color-primary)] font-bold">Availability</a>
                     <a href="feedback.html" class="hover:text-[var(--color-primary)] transition-colors">Reviews</a>
                     <a href="contact.html" class="hover:text-[var(--color-primary)] transition-colors">Find Us</a>
-                    <a href="booking.html" class="px-6 py-3 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
+                    <a href="booking.html" class="px-5 py-2.5 rounded-full bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition-all shadow-md">Book Now</a>
                 </div>
             </div>
         </div>
     </nav>
     
-    <!-- Calendar Engine Layout -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-        <h1 class="text-5xl font-extrabold tracking-tight text-center mb-4">Live Venue Schedule</h1>
-        <p class="text-center opacity-70 mb-16 font-light max-w-md mx-auto">See our upcoming schedule below. To reserve an available date, use our WhatsApp booking form.</p>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+        <h1 class="text-4xl font-extrabold tracking-tight text-center mb-4">Live Venue Schedule</h1>
+        <p class="text-center opacity-70 mb-12 max-w-md mx-auto text-sm">Review booked schedules around Santa Cruz and Bambolim. Modify directly via GitHub to update listings.</p>
         
-        <!-- Live Calendar Grid -->
-        <div id="calendar-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
-            <!-- Dynamic calendar tiles generate here automatically -->
-        </div>
+        <div id="calendar-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5"></div>
     </main>
 
     <script>
-        // ==========================================
-        //  MANUAL BOOKING REGISTRY (EDIT ON GITHUB)
-        // ==========================================
-        // Simply add or remove dates below using the exact format: "YYYY-MM-DD"
+        // MANUAL BOOKING ARRAY (Edit date codes directly on GitHub)
         const BOOKED_DATES = [
             "2026-05-25",
             "2026-06-05",
-            "2026-06-12",
-            "2026-06-20",
-            "2026-06-21"
+            "2026-06-12"
         ];
 
         function buildManualCalendar() {
             const grid = document.getElementById('calendar-grid');
             grid.innerHTML = ''; 
-            
-            // Generates a rolling 28-day schedule starting from today
             for(let i = 0; i < 28; i++) {
                 let d = new Date();
                 d.setDate(d.getDate() + i);
-                
-                const year = d.getFullYear();
-                const month = String(d.getMonth() + 1).padStart(2, '0');
-                const day = String(d.getDate()).padStart(2, '0');
-                const dateString = `${year}-${month}-${day}`;
-                
-                // Cross-reference our manual array above
+                const dateString = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
                 const isBooked = BOOKED_DATES.includes(dateString);
                 
-                const uiClass = isBooked 
-                    ? 'bg-rose-500/5 border-rose-500/20 text-rose-600 dark:text-rose-400 font-medium' 
-                    : 'bg-blue-500/5 border-blue-500/20 text-[var(--color-primary)]';
-                    
+                const uiClass = isBooked ? 'bg-rose-500/5 border-rose-500/20 text-rose-600' : 'bg-blue-500/5 border-blue-500/20 text-[var(--color-primary)]';
                 const label = isBooked ? '🔒 Reserved' : '✅ Available';
                 
-                const card = `
-                    <div class="border p-6 rounded-2xl flex flex-col items-center justify-center text-center bg-[var(--color-card)] shadow-sm ${uiClass} animate-fade-in" style="animation-delay: ${i * 0.015}s">
-                        <span class="text-xs uppercase font-bold tracking-widest opacity-60">${d.toLocaleString('default', { month: 'short' })}</span>
-                        <span class="text-3xl font-black my-1">${day}</span>
-                        <span class="text-xs font-bold mt-2 px-3 py-1 bg-[var(--color-bg)] rounded-full border border-[var(--color-nav-border)] w-full">${label}</span>
-                    </div>
-                `;
-                grid.innerHTML += card;
+                grid.innerHTML += `
+                    <div class="border p-5 rounded-2xl flex flex-col items-center justify-center text-center bg-[var(--color-card)] shadow-sm ${uiClass}">
+                        <span class="text-xs uppercase font-bold opacity-60">${d.toLocaleString('default', { month: 'short' })}</span>
+                        <span class="text-3xl font-black my-1">${d.getDate()}</span>
+                        <span class="text-[11px] font-bold mt-2 px-2 py-1 bg-[var(--color-bg)] rounded-full border border-[var(--color-nav-border)] w-full">${label}</span>
+                    </div>`;
             }
         }
-
-        // Run calendar execution on mount
         buildManualCalendar();
     </script>
+
+    <!-- Global Standard Footer -->
+    <footer class="bg-[var(--color-card)] border-t border-[var(--color-nav-border)] py-12 mt-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm opacity-70 space-y-3">
+            <p class="font-medium">&copy; 2026 Dove Nest Goa. All Rights Reserved. Managed by Saturnino Soccorro Fernandes & Sergio.</p>
+            <p class="text-xs font-semibold pt-4 border-t border-[var(--color-nav-border)]/50">
+                Website Designed & Developed by <a href="https://fuelerz.com" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline font-bold">Fuelerz.com</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
